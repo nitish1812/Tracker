@@ -1,0 +1,538 @@
+:root {
+    --primary: #1D9E75;
+    --primary-dark: #126B4E;
+    --primary-light: #EBFDF5;
+    --bg-main: #FAFAFA;
+    --bg-sidebar: #FFFFFF;
+    --surface: #FFFFFF;
+    --border: #ECEFF1;
+    --text-main: #1A2332;
+    --text-muted: #78909C;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 10px 30px rgba(29, 158, 117, 0.05);
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+}
+
+/* Base High-End Layout Architecture */
+.app-wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+}
+
+/* Sidebar Framework Layout styling */
+.sidebar {
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--primary);
+    margin-bottom: 32px;
+}
+
+.date-banner {
+    margin-bottom: 32px;
+}
+
+.date-banner h1 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--text-main);
+}
+
+.date-banner p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: none;
+    border: none;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-align: left;
+    transition: var(--transition-smooth);
+}
+
+.nav-item:hover {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+}
+
+.nav-item.active {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.sidebar-footer {
+    padding-top: 20px;
+    border-top: 1px dashed var(--border);
+}
+
+/* Interface Core Viewport Panel */
+.main-content {
+    padding: 40px 48px;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Elite Level UI Presentation Cards */
+.cycle-hero-card {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 32px;
+}
+
+.hero-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.hero-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    margin-top: 6px;
+    font-weight: 400;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 32px;
+}
+
+.panel-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+}
+
+.panel-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+/* Precision Habit Controls Layouts */
+.habit-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.habit-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.habit-item:last-child {
+    border-bottom: none;
+}
+
+.habit-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.habit-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.habit-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Clean Custom Form Inputs Controls Switches */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #E2E8F0;
+    transition: var(--transition-smooth);
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: var(--transition-smooth);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+input:checked + .slider { background-color: var(--primary); }
+input:checked + .slider:before { transform: translateX(20px); }
+input:disabled + .slider { opacity: 0.4; cursor: not-allowed; }
+
+/* Interactive Primary Buttons Styling elements */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-icon {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition-smooth);
+}
+
+.btn-icon:hover { background-color: var(--bg-main); }
+
+/* Modular Component Layout Structs (Streaks Display) */
+.streak-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.streak-row-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.streak-row-card.highlight {
+    background-color: var(--primary-light);
+    border-color: var(--primary);
+}
+
+.streak-row-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.streak-row-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+}
+
+.streak-row-card.highlight .streak-row-title { color: var(--primary); }
+
+.streak-row-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+/* Calendar Element Architectures */
+.calendar-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-controls { display: flex; gap: 6px; }
+
+.calendar-matrix {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.cal-weekday {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-align: center;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.cal-date-node {
+    aspect-ratio: 1.1;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+}
+
+.cal-date-node .sub-lbl {
+    font-size: 0.6rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Status Matrix Palette colors definitions */
+.cell-unlogged { background-color: #ECEFF1; color: #546E7A; }
+.cell-complete-all { background-color: var(--primary); color: white; }
+.cell-complete-partial { background-color: #A7F3D0; color: var(--primary-dark); }
+.cell-rest-logged { background-color: var(--primary-light); color: var(--primary); }
+.cell-failed-threshold { background-color: #FEE2E2; color: #EF4444; }
+.cell-current-active { border: 2px solid var(--text-main) !important; box-shadow: 0 0 0 2px var(--surface) inset; }
+.cell-inactive-future { opacity: 0.25; pointer-events: none; }
+
+/* Biometrics & Form Utilities Layout adjustments */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.settings-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+}
+
+.input-inline {
+    display: flex;
+    gap: 8px;
+}
+
+.input-inline input, .sidebar-footer input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+.input-inline input:focus, .sidebar-footer input:focus {
+    border-color: var(--primary);
+}
+
+.input-inline button { width: auto; }
+
+.stats-showcase {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.metric-box {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.metric-box .num { font-size: 1.3rem; font-weight: 800; }
+.metric-box .lbl { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-top: 2px; }
+
+.timeline-viewport {
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.timeline-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.timeline-row .delta { font-weight: 700; font-size: 0.85rem; }
+.txt-down { color: var(--primary); }
+.txt-up { color: #EF4444; }
+
+/* Data Reports Visual Layouts modules */
+.grade-hero {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 32px;
+}
+
+.grade-caption {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.grade-badge {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--primary);
+    line-height: 1;
+    margin: 12px 0;
+}
+
+.grade-verdict {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.report-table {
+    display: flex;
+    flex-direction: column;
+}
+
+.report-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+}
+
+.report-summary-text {
+    background-color: #F8FAFC;
+    border-left: 4px solid var(--primary);
+    padding: 16px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin-top: 24px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #334155;
+}
+
+/* Mobile Responsive Optimization Layout Interceptions */
+@media (max-width: 900px) {
+    .app-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        height: auto;
+        position: relative;
+        padding: 24px;
+    }
+    .main-content {
+        padding: 24px;
+    }
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
